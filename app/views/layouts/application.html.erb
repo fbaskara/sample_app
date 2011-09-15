@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html> 
 	<head>
-		<title>Ruby on Rails Tutorial Sample App | <%= @title %></title> 
+		<title><%= title %></title> <!-- @title means title variable, while title means calling function with name title -->
 		<%= csrf_meta_tag %>
+		<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+		<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
 	</head>
-	<body> 
+	<body>
 		<%= yield %> 
 	</body>
 </html>
