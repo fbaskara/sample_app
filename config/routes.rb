@@ -1,13 +1,16 @@
 SampleApp::Application.routes.draw do
+  #get "sessions/new"
+  resources :sessions, :only => [:new, :create, :destroy]
+  match 'signin', :to => 'sessions#new'
+  match 'signout', :to => 'sessions#destroy'
+
   resources :users
-  
   match 'signup', :to => 'users#new'
   
   root :to => 'pages#home'
-  
   match '/contact', :to => 'pages#contact' 
   match '/help', :to => 'pages#help'
-  match '/about', :to => 'pages#about'
+  match '/about', :to => 'pages#about' # this creates about_path and about_url. see below
   # What isn’t obvious is that
   #   match ’/about’ 
   # also automatically creates named routes 
